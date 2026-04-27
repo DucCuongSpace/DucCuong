@@ -1,0 +1,1040 @@
+Source URL: https://www.youtube.com/watch?v=w2vRlfDEhyE
+Author: unknown
+Title: unknown
+Date: 2026-04-26
+
+This video is 10 CloudCode examples
+built specifically for data scientists.
+I've spent 3 years in that rule running
+the same exact EDA, cleaning the same
+data, and writing the same statistical
+tests on repeat. So, I know which tasks
+are actually worth automating. You're
+getting the full workflow as well as the
+prompts. We're going to start with
+exploratory data analysis and finish
+with tasks like hypothesis testing. The
+last example alone in this video takes a
+2-hour task and turns it into something
+that is done under a minute. So, let's
+jump into it. Here is our data set we're
+going to use for our first example of
+exploratory data analysis. If you guys
+also want to grab this spreadsheet, I'm
+going to upload it into my school group.
+It's free to join. We have calls every
+single week. Uh so, just go into this
+classroom section and download that.
+You'll have all the examples throughout
+this entire video. Uh regardless, I
+don't want to spend too much time there.
+I would just want to say that this
+spreadsheet has order IDs, a customer
+ID, name, a product category, region,
+order date, revenue, quantity, and
+status. Typically, when I get one of
+these types of spreadsheets, I'll
+probably uh throw this in a Google Colab
+notebook, start writing some Python
+Pandas, and really diving into the data
+set. Obviously, before you do that
+though, you want to take a look at it
+and see, you know, what is going on.
+It's interesting like for example, this
+is missing a quantity, and you can see
+like we have the order, the customer,
+the revenue, as well as a discount. It's
+completed, but like there's no quantity.
+Uh revenue on this one's like -15. So,
+and this was also canceled as well. So,
+that's kind of interesting. So, there
+might be like some nuances associated
+with that. And you know, this data set
+isn't too large. It's, you know, what?
+260 rows. Obviously, in real-world data,
+you're dealing with tens of thousands,
+if not hundreds of thousands of rows.
+For this video, it doesn't make sense
+to, you know, build out a data set like
+that. But, we're going to utilize that
+for our first example. Then you guys can
+see that I'm using CloudCode directly
+inside of VS Code. I feel like a lot of
+people are going to be utilizing VS
+Code. Uh so, that's where we're going to
+use it for this video. And each of these
+sections, I already have prompts that
+are already generated just to save us a
+little bit of time. But, you can see in
+this prompt over here, I have an
+e-commerce sales data set called
+e-commerce sales.csv, which is in this
+folder. You can see full EDA. Please run
+a full EDA analysis on it. I want to see
+data set shapes, dtypes, and a summary
+of nulls, descriptive statistics,
+descriptive plots, correlation heat map,
+top five products, revenue breakdown,
+flag any outliers or data quality issues
+that may spot, and save all charts in
+PNG and write me a summary of the key
+findings. You know, this is something
+you'll typically see pretty early on in
+your data career. If you're jumping into
+Kaggle projects, this is one of the
+first things that you learn when you
+jump into the Titanic data set. So, this
+is like relatively beginner level, but
+it does take a lot of time. So, we're
+going to run this prompt.
+And obviously, you can fine-tune this
+prompt for your own specific scenarios.
+This is just a demo, and we're going to
+run that. So, just paste this in
+CloudCode. And to save you guys time as
+well, I'm just going to fast-forward to
+when things are ready, so that way we
+can take a look at it together.
+Okay, and then it generated us this code
+over here. You can see it even imported
+in Pandas, imported in NumPy,
+Matplotlib. We actually have a decent
+amount of code, like 150 lines or so.
+I'm going to give it the check mark like
+this is good. I'm going to accept the
+proposed changes.
+And obviously, there's different
+settings you can choose in CloudCode if
+you want to approve things or not. I'm
+just going to click on yes and approve
+everything across the board.
+Okay, and we have our final results over
+here. So,
+let's walk through all this. It probably
+took a few minutes, give or take. But,
+it says EDA summary key findings. Pretty
+nice formatting in my personal opinion.
+Uh we have our data set overview, 260
+rows, 11 columns, which we already
+talked about. Uh 68 total nulls.
+Discount has the most, followed by
+revenue, and then quantity.
+At the end of the day, discount having a
+bunch of nulls not a big deal. Revenue,
+we have the mean as well as the median,
+heavily right-skewed. We have our range,
+one negative revenue value, likely a
+refund or some sort of data error.
+And then we have 29 IQR outliers above,
+top outliers near 450, 900. Top five
+products, it tells us our monitor, golf
+clubs, bicycle, sweater, jeans. Top
+categories sports home electronics
+as well as clothing.
+We have a regional breakdown where they
+where these were sold at, quantity and
+discounts. Discounts range from 0 to
+20%, uh which discount analysis is
+actually pretty fun.
+A little tangent, but that was one of my
+first uh data analytics projects at my
+first full-time job. Uh regardless, we
+have correlations, uh data quality
+flags, one negative revenue, 48 missing
+discounts, 17 missing revenue. Uh 9%
+orders are canceled, 16% pending, which
+is interesting. And then we have
+different charts that were saved on our
+computer. So, you can see like
+distribution plots. We have that,
+correlation heat map,
+product categories, revenue by region.
+And then we also have a EDA script that
+can be rerun anytime. So, if you have
+the same exact data set, maybe a little
+bit later down the year, we want to
+rerun that. And you can see we have all
+these over here.
+Uh some of our graphs,
+which is really awesome. And these look
+uh very good.
+Obviously, if you want to change things
+up, you can just reprompt it, or you can
+just change your code.
+And let's take a look at our EDA code.
+And we have all this generated over
+here. We have comments, which uh you
+know, a lot of people don't leave
+comments in their code all that all
+together. And like think about it on
+your EDA side. Like how long would it
+have you taken you to really go through
+this? And I'm not saying like fully skip
+EDA. Like I still think it's important
+to understand what is happening in your
+data set. But, out of the box, I think
+this is a pretty nice way to start
+getting some information about uh what
+is going on in your specific
+spreadsheet. So, kind of in the same
+realm, we're now we're going to take a
+look at actually how we can clean data.
+Look, we've all been there. You get a
+data set from some sort of legacy
+system, and it's a mess. Mixed-case
+names, phone numbers in five different
+formats, dates that look like they came
+from different countries, inconsistent
+Boolean values. Normally, you're going
+to spend 30 minutes, an hour, 2 hours
+writing Pandas code to clean up all
+this, handling edge cases, fixing typos,
+removing duplicates. It's tedious as
+well as super error-prone. Uh with
+CloudCode, I can just describe what
+clean data looks like, and it is
+completely done. All the
+standardizations validations a
+before-and-after comparison in just a
+few minutes. And uh let's dive into that
+example. And uh very similar data set,
+what we have this time is our customer
+ID, customer name, email, phone number,
+which And just looking at this, look at
+how bad some of these phone numbers are.
+I would be so mad if I had a data set
+like that. Our sign-up date, which is
+also pretty atrocious. Annual revenue,
+our country. Look at that, US in three
+different formats. Age, we have uh here
+those missing.
+And is active, yes, one, true, false.
+This is as bad as it gets. Oh, actually,
+we have a a true value over here as
+well. That's uh it's pretty bad.
+Jumping into our friend CloudCode, we're
+going to write this out. Here's our
+prompt that we are going to test. I have
+a messy customer data set. Please clean
+it completely. Standardize customer name
+to title case. Fix invalid email
+formats. Flag invalid ones. Standardize
+phone numbers. We gave it that specific
+format, so it specifically knows. Uh
+parse all sign-up date values into a
+consistent format. Clean annual revenue.
+Remove dollar and commas. Convert to a
+float. Standardize country to full
+country name. Fix age. Remove impossible
+ages below zero or above 120. Obviously,
+I'd probably change this for real to
+like above 100.
+Standardize is active to true, false.
+Remove duplicate rows. Show
+before-and-after comparison and save the
+clean data as this. And we have our
+cleaned customer data. Obviously, the
+one we started with is messy. So, I'm
+going to send this prompt over, and uh
+we'll fast-forward when it's ready.
+All right, so we have our results. So,
+the cleaning was successful. Here's
+before and after. Rows before, after 51,
+there's 49 duplicates, it says, in this
+data set. Uh columns 9, 10, we added
+email validation. And then what was
+cleaned? Customer name, email, phone,
+sign-up date, country, age. The clean-up
+data is saved over here. And we also
+have a Python script. Uh so, let me open
+up that Python script so you guys can
+see that. Moving uh CloudCode out of the
+side, you can see we get Pandas, we have
+regex,
+and then uh date utility parser, date
+parser. We loaded in our data,
+and then we start cleaning it up.
+Honestly, not as many lines of code as I
+thought it would be for this data set.
+Regardless, what you guys are going to
+care about is like, what does this data
+set actually look like? I'm going to
+load this up in sheets, and we'll dive
+into it. All right, and here is our
+final result. We have our customer name,
+looks way cleaner. Our emails, and you
+can see these uh examples.com,
+co. exactor. We have our phone numbers,
+our sign-up date, the annual revenue,
+which now is one format in comparison to
+all these others over here. Then we have
+our country, uh which is pretty
+self-explanatory, US as well as UK. Our
+ages,
+is active, and then uh validation. And
+then you can see over here that this is
+an invalid email because you have this
+over here
+where it's bob@invalid@email.com,
+which is pretty bad. And you have this
+one over here, which is empty. So, this
+is a pretty nice column. Uh we can
+essentially remove the invalid emails if
+we wanted to, or reach out to a person
+in some capacity, whatever the case may
+be. And our data set is now clean. Now,
+taking a look at some of these dupes,
+let's see if that actually was the case.
+So, we have obviously one over here, the
+50 to 60, all the way to 100. So, you
+know, this column was unique across the
+board.
+Uh where do we start? So, like number
+three is a dupe, it says. And you can
+see you have John Smith
+and we have John Smith.
+Same exact
+uh, John Smith. Our phone numbers are a
+little bit different, looks like.
+555-123-4,
+but then we have like 67 in this one.
+Same exact sign-up date, same revenue,
+same country, same age. So, yeah, these
+are our duplicates and they weren't
+right next to each other. So, this is
+pretty cool. It was able to specifically
+figure that out. This is the other half
+of the job that no one talks about.
+You've analyzed the data, found the
+insights, and now you have to build the
+presentation. You're context switching
+between Python and PowerPoint, manually
+styling charts, adding in annotations,
+fighting with alignment. But, what if
+you could do all this in one place? Load
+the data, create publication-ready
+charts, and a full PowerPoint deck with
+insights all in one prompt. So, this is
+our new spreadsheet we're working with.
+We have different months, month name,
+the region, revenue, units sold, average
+order value, as well as brand new
+customers that we brought on. We've been
+asked to analyze this data and turn it
+into a slide deck. And you know, this is
+a task I do all the time with Cloud
+Code. In fact, my other YouTube channel,
+I build out slide decks from data that I
+scrape every single month. Uh,
+regardless, let's uh, prompt this out.
+So, I have our prompt over here, and let
+me just make this a little bit larger so
+you guys can see that.
+Obviously, as I mentioned, you can
+change prompts, you can keep going back
+and forth conversation-wise. We're just
+doing these pretty short. Um, but I have
+a a monthly data set called monthly
+revenue CSV. Please create the following
+visualizations: a line chart, bar chart,
+heat map, a summary chart. Make the
+charts clean and presentation-ready with
+proper titles, labels, and a consistent
+color scheme, and save as a PNG. Then,
+create a PowerPoint presentation with
+title slide, 2024 revenue performance. I
+know we're in 2026, this just looks at
+2024 data. Uh, one slide per chart with
+two to three sentences insight below
+each. A final summary slide with three
+key takeaways. And then we say to save
+the presentation as revenue uh, dot
+PowerPoint. Now, you could also build
+PowerPoints relatively easy in Cloud
+Co-work if you give it all the different
+examples, and we've covered that in
+another video. But, when you work with
+Cloud Code, you can actually get a
+Python file that you can run all the
+time. So, personally, I'd recommend
+building out the slides in Cloud Code
+over Co-work, but uh, whatever's easier
+for you.
+We're going to grab that prompt. We're
+going to send it into Cloud Code, and
+uh, let's see what ends up happening.
+Also, to mention, it is relatively easy
+to make a cloud.md file. Uh, so that way
+we can define, you know, what type of
+colors we want, what type of formatting,
+etc. A little bit outside the scope of
+these 10 demos for today. All right, and
+we are done over here. Uh, you can see
+all charts and presentations already.
+Here's what it created: four PNG charts,
+and by each of those, a PowerPoint slide
+over here. Uh, so you can see title
+slide, four charts, summary slide. We'll
+take a look at that here in a second.
+Wonder if it actually built out a Python
+file. I'm going to check the folder. And
+you can see we actually built out our
+Python file as well. So, import
+PowerPoint over here, presentations.
+We're loading our data.
+And uh,
+go through it all. So, let me load up
+the slides, and let's dive into it. Now,
+obviously, this is a pretty basic
+design. Uh,
+didn't choose any of the colors, I
+didn't specify what needs to be on,
+um,
+the specific fonts and anything like
+that. But, we have revenue trends. We
+built this with Python, our chart. We
+have our text underneath it, total
+annual revenue by region. I do like how
+there's a good contrast though between
+the background as well as the data that
+we're presenting.
+A revenue heat map,
+top months by total revenue, and then we
+have our key takeaways, which were the
+three at the very end. Obviously, very
+short slide, but if you have a slide
+deck that you need to build out on a
+weekly or monthly or a quarterly basis,
+I could definitely see you going out
+there, writing some Python code, and uh,
+automating this. Because if you have the
+same piece of information, or at least
+like 80 or 90% month over month, you
+might as well build that out, and you
+saw how relatively easy it was. I think
+every data scientist has a complicated
+relationship with SQL. You know it's
+powerful, but writing window functions,
+complex joins, and CTEs can be tedious,
+especially if there's limited
+documentation about previous queries.
+Here's the thing though, you don't need
+to always write out SQL. You can just
+describe what you want in plain English.
+Would you want the top customers,
+revenue by region, month over month
+growth? Cloud Code will write the SQL,
+load your data, run the queries, and
+then show you the exact results all in
+seconds. And no more wrestling with
+complicated SQL. So,
+for this demo purpose, like we're not
+going to write into a database, we're
+just going to have three CSV files. We
+have customers, orders, as well as
+products, just to show you relatively
+fast we have all this over here.
+And you know, one of the things I would
+recommend is you just describe what your
+tables are and like what columns you
+specifically want to utilize, and I find
+it to be particularly helpful
+when using code. But, this is our
+prompt. I have three SQL three CSV
+files, customers, orders, and products.
+Load them into in-memory SQL Lite
+database, and then write SQL queries for
+the following. And we have
+uh, five different questions over here.
+Show me total revenue by customer tier,
+which 10 customers have spent the most
+money in the last 6 months, what is the
+month-over-month revenue growth, find
+customers who have placed more than
+three orders, what's the average order,
+and then for each query, show the SQL,
+run it, and display the particular
+results. So, we're going to grab that.
+I'll send it over to code, and we will
+be back.
+Okay, now we have our results. All five
+queries were run successfully. Uh,
+silver leads with 206 orders, followed
+by bronze and gold. Top 10 spenders,
+Felix Bell
+has 1950 across three records. Uh,
+month-over-month revenue highly
+variable. Home had the most dramatic
+swings. Customers with over three orders
+never canceled. 63 customers qualified.
+13 customers have seven orders each with
+zero cancellations. Average order value
+by each region. And then it says, "Note
+on query four, the data has no refund
+status, only completed, pending, and
+canceled. I use canceled as the closest
+proxy for specific refunds." Now, let's
+actually take a look at those SQL
+queries. And inside the Python file that
+it generated, you can see it says plain
+English SQL. Uh, we ain't include SQL
+Lite, Pandas. Says load CSVs into SQL
+Lite. And then we have query one, and we
+have this over here with our select,
+from, we're joining, where we have a
+group buys and order by. Pretty easy
+query in my personal opinion. Same with
+this one over here, nothing really too
+complicated. Um, we have a CTE, which a
+little bit more complicated, uh, but
+relatively simple. Uh, when you work
+with dates and times, that can be a
+little bit complex, and sometimes you
+make some errors. I know I hate working
+with dates and times with SQL.
+Uh, this one also looks relatively easy,
+and so does this last one. But, you
+know, it does save a bit of time.
+There's tons of use cases for when you
+want to use external data, and often
+it's going to be locked behind an API.
+So, I just want to show you how we could
+utilize Cloud Code for an API.
+Obviously, there's so many different
+types of APIs out there, everything's
+going to be a little bit different on,
+you know, the data that you're asking
+for, the specific credentials, and much
+more. So, I'm going to go through a very
+basic one, which you don't even have to
+set up any sort of login or anything
+like that. Obviously, if you want to try
+this with your own use case, do it, but
+I'm just going to go and show you a a
+basic one for this video. Okay, so we're
+using this API from CoinGecko, and we're
+going to ask to grab the top 20
+cryptocurrencies by market cap over
+here, load it into data frame, create a
+bar chart of market cap, and then save
+this as crypto_data.csv.
+So, let's copy in this prompt. We're
+going to go over here to Claude,
+send that over, and uh, let's get our
+answer.
+All right, and then you can see done the
+script over here. And actually, let me
+just
+put that there so you guys can see a
+little bit better. Pull top 20
+cryptocurrencies. I loaded the data,
+created a bar chart, and saved the full
+data. So, we can take a look at each of
+those as well. First, our crypto pull.
+So, you can see that we have our API,
+the parameters that we're passing in.
+So, 20, page one, market cap descending.
+Obviously, USD since I'm based in
+America. Then we have a data frame, so
+loading data frame, and then uh, we save
+this over here, crypto_data.csv.
+And then our chart that was built.
+cryptocurrencies by market cap. Bitcoin,
+Ethereum. I don't know the others, I'm
+sorry. I know Doge, because people used
+to give away that for free, uh,
+back in the good old days of Twitter.
+But, uh, yeah. And I'm actually
+surprised how much higher Bitcoin is.
+Maybe I'm not. Uh, but those look tiny
+over here. Regardless, as I mentioned,
+tons and tons of different APIs out
+there, so feel free to experiment with
+this. But, uh, Cloud Code does an
+amazing job, and now let's jump into our
+next section, which is what happens if
+you actually don't have access to an API
+for some data. So, unlike the last
+section we talked about APIs, you know,
+not every data set is going to have a
+publicly available API. Sometimes you're
+going to have to go online, and you're
+going to have to scrape data from
+websites. In my opinion, Cloud Code is
+fantastic at writing the Python code to
+scrape those specific sites. I've done
+it in a few different personal tasks,
+where I even had to deal with websites
+that have a Cloudflare, which is
+notoriously difficult to scrape. But,
+after a conversation back and forth, we
+were able to figure out the Python code
+to do that specific task. So, in this
+section, we're going to take a look at a
+very basic example of just scraping
+Wikipedia. Let's jump right into it. All
+right, so this is the prompt that we're
+going to ask. We're going to say,
+"Please scrape this Wikipedia page for a
+list of largest companies by revenue.
+Extract the main table with company
+name rank revenue profit employees
+industry, and country." Then, and we
+have a few different instructions. Give
+it a data frame, show top 10 companies,
+create a bar chart, group by country,
+industry, and then save the data as a
+CSV. Handle any formatting issues in
+numbers. So, obviously we can write
+Python code. It's not that hard to just
+scrape Wikipedia.
+And you know, that's one of the earliest
+sites, but still might take you an hour
+plus, and then that's not even including
+some of the other tasks that we've
+already included over here. Some of this
+obviously is a refresher of things that
+we did a little bit earlier. We're going
+to send over that prompt, going to drop
+that right into the cloud code, and let
+it do that for us, and I'll be right
+back.
+You obviously get some notifications
+like this as well, where it says, "Allow
+fetching this URL." Obviously, we want
+to, so we're going to click yes. All
+right, so we have our list over here. It
+says done. We have our Python script,
+which we can take a look at here in a
+second. We have that over there.
+Top 10 by revenue.
+And we have, interesting enough, only
+five shown over here. So, a little bit
+of a bug, cuz you can see Amazon,
+Walmart, State Grid Corp of China, never
+heard of that. Saudi,
+which I believe is a private oil
+company. Obviously, oil company out of
+China. Countries dominating list. Top
+industries, and we have our output file.
+So, horizontal bar chart.
+And let's take a look at some of those
+as well. So, first we have the top 15
+companies by revenue.
+So Amazon Walmart
+all these other companies as well.
+And uh
+Shouldn't be surprised that Berkshire is
+on here, but they are uh CVS,
+Volkswagen Exxon.
+Never heard of Vital, and Shell. And
+then we have our scripts. So, scrape
+Wikipedia's list of largest companies,
+perform analysis with Pandas and
+Matplotlib.
+So, you can see over here, we have a
+request for web scraping.
+And uh we go through over here, grab our
+information,
+and then populate it based off of our
+specific query. Again, just going up
+over here,
+we asked uh show the top 10 companies by
+revenue, which it didn't, you know,
+obviously you saw that only showed us
+five, and and we could send another
+prompt and say, "Hey, you only showed me
+five." We created a bar chart of the top
+15. We saw the countries, we saw the
+industries. So, like it was almost
+there. I mean, again, just going through
+this over here.
+You know, one minor mistake. I'm going
+to click show less.
+Didn't show the top 10, but uh
+we could also fix this relatively
+easily,
+if we really wanted to. And we can go
+through this CSV file as well. As you
+can see, we have our information
+directly over here. And like, it takes 2
+seconds to filter with Pandas to get a
+top 10. So, I'm not really too concerned
+on that side of things. The hard part
+was building out the scraper. And
+obviously, as I mentioned, Wikipedia,
+super easy site to scrape. Some others
+might take you an hour going back and
+forth, debugging it. Obviously, we don't
+have time to do that today.
+But, especially when you deal with
+Cloudflare websites. Feature engineering
+is where a lot of the real lift is in
+machine learning, but it's usually one
+of the hardest things to automate,
+because it requires reasoning about the
+business problem. You can't just run a
+formula. You need to think, "What are
+the hidden signals in this data? What
+indicators suggest a customer could be
+at risk?" So, I'm going to show you how
+Cloud Code can do that reasoning out
+loud, suggest meaningful features based
+off of SaaS domain knowledge, and then
+build them in seconds. Also, full
+transparency. I'm not saying feature
+engineering is going away. I think
+there's a ton of domain knowledge out
+there, and things that people can do
+even outside of Cloud Code. Anyways,
+let's jump right into it. Okay. So, here
+is our prompt. I have a customer churn
+data set. I'm trying to predict whether
+a customer will churn. Before I build a
+model, I want to do feature engineering.
+And we give it a few steps. Analyze the
+existing features and the relationship.
+Suggest and create at least eight new
+engineered features that might improve
+prediction. Think about Give it some
+ideas over here. For each feature,
+explain why you think it'll be
+predictive. Show the correlation of each
+feature to the churn target. And then
+save the enriched data set over here as
+a CSV file. So, we have our data set
+over here, which is customer churn raw.
+Actually, let me load this up in sheets,
+so you guys can see that. Okay. So, you
+can see we have our customer ID, age,
+months, monthly spend, products, support
+tickets, last login days, contract type,
+payment method, region, as well as if
+they were churned or not. Pretty
+straightforward for a churn data set.
+Those are always pretty fun to work on.
+But,
+yeah, let's send over that prompt, which
+we have right here, and see what
+ends up getting us.
+All right, and we have our results over
+here. So, it says existing feature
+analysis. Data set 100 customers with a
+51% churn rate.
+Contract type is perfectly predictive.
+All monthly customers churn. Zero annual
+customers. It Obviously, this is a data
+set for this particular video, not real
+world scenario, but it says strongest
+numeric correlation, tenure, support
+tickets, last login days, monthly spend,
+number of products. 10 engineered
+features sorted by correlation with
+churn.
+So, we have like feature is monthly,
+inactive flag, tenure,
+lifetime proxy are with churn. And then
+rationale behind each of them. Monthly
+contracts equals no lock-in, classic
+SaaS churn flag, 30 plus days since
+login, behavioral signal, etc. The
+enriched data set is saved as this, with
+all 10 new features. The script is
+feature engineering pi. Notable insight
+is monthly feature as a predictive
+correlation in this data set. Contract
+type perfectly separates churners from
+non-churners. In a real model, you'd
+want to verify this isn't a data
+leakage. Look at that, calling that out.
+Um so, that's pretty awesome on there.
+And let's take a look at what this
+Python file looks like.
+You can see we can throw that in over
+here.
+Uh import system, import Pandas,
+and analyze the existing features.
+Engineer new features. And by the way,
+if you don't like any of these features,
+you can always just prompt it again and
+say, "Hey, I don't like these features.
+Can you give me five more?" And maybe
+I'll do that for this over here. And
+obviously, I'm in the way, so I'm just
+going to
+make this like that. I'm going to say,
+"Can you give me three more features?"
+So, don't be afraid to go back and forth
+in a conversation. All right, and we got
+three more over here.
+Disengagement index, product adoption
+rate, and then spend per tenure
+are with churn. And then our rationale.
+So, CSV script's updated, now 24 columns
+with 13 engineered. Obviously, we can
+load these back up in Google Sheets,
+which I'm going to do. And now you can
+see we have much larger data set. So,
+after churned, we have all these other
+features that we just built out
+all in the chat, which we've already
+talked about,
+and right over there. AB testing sounds
+simple, but there are a lot of ways that
+you can get it wrong. In this section,
+we're going to be taking a look at how
+we can prompt Claude with just a few
+steps that AB tests should look at to
+see if changes on a website were
+successful.
+So, this is our spreadsheet. We have our
+different user IDs, whether they're in
+the control group or the treatment
+group, they converted or not, the
+revenue associated with it, session
+duration on the website, pages viewed,
+their device, whether they're desktop,
+mobile, or tablet, and then the day that
+they specifically signed up. Jumping
+into VS Code, you can see we have this
+prompt. I want to AB test my website.
+The data set is this, which I just
+showed you guys. Control group saw
+original landing page. Treatment group
+saw new design. We have different
+questions like, check if the test was
+set up correctly, assumptions, calculate
+detectable effect, run appropriate
+statistical test, analyze revenue per
+user, segment results by device type,
+and then give me plain English executive
+summary, did the new design win, and
+should we ship it? Obviously, you can
+combine this with some of the other
+stuff we've already covered, such as
+building out, you know, like PowerPoint
+slides and things like that for some
+sort of presentation, but
+regardless, that's what we're going to
+do in this section.
+Grab that over here, and uh send that
+into Claude, and I will see you guys.
+All right, and we have our results over
+here. So, it says 250 control, 250
+treatment, perfect one-to-one split.
+Uh one flag,
+This is important context for the
+segmented results. Then our assumptions.
+It says normal approximation is valid
+for the proportions test. Revenue is not
+normally distributed, so we use the
+Mann-Whitney U and Welch t-test. Power
+analysis with 250 per group, and it says
+the observed 30 pp effect uses 100%
+power. Then we have our conversion rate,
+49% over here. Treatment 79%.
+And then revenue per user, control $19,
+treatment $50. Segmentation by device.
+So, we have desktop, mobile, and tablet.
+Control versus treatment. Obviously, we
+saw that was a bit imbalanced.
+And then we have our executive summary
+here at the very end. So, it says ship
+it with nuance. The new design is a
+massive win on mobile, and a solid win
+on tablet. Desktop sees no meaningful
+conversion improvement, though revenue
+per user is still increased. The device
+imbalance slightly inflates the headline
+numbers, but the segmented results
+confirm the effect is real within each
+device. Prioritize mobile experience.
+The new design truly shines. And then we
+have our code over here. And just
+clicked on that. So, we can just take
+that over here. And you can take a look
+at all of this Python code.
+This did take a little bit longer to
+you know, write this out over here.
+Probably took like 5 minutes, but
+331
+lines of code. There's so much
+boilerplate code in a proper ML
+pipeline. Stratified train test split,
+preprocessing scaling categorical
+encoding cross-validation
+hyperparameter tuning. Most data
+scientists will spend hours just wiring
+up all this together. Cloud Code can
+build the entire end-to-end pipeline in
+one go. Obviously, you can go in there
+and fine-tune things and change things
+as needed, but all you have to do is
+describe what you want, train multiple
+models, use grid search, evaluate the
+rate metrics, and it handles all of the
+plumbing. This is the data set we're
+going to be taking a look at. We have a
+customer age,
+tenure month, spend, products,
+region, contract type, and then we have
+some other engineered features such as
+like spend per product, support ticket
+rate, engagement score, high-risk flag,
+annual spend tier, tenure group, and
+then if they churned or not. Uh jumping
+into VS Code,
+you can see we have this prompt. I have
+a customer churn data set over here. The
+target variable is churn. Please build a
+complete ML pipeline.
+And obviously, you don't want 80/20. It
+really depends on your sample size. You
+can change that up. And I talk about
+imputing any missing values and code
+categorical variables,
+um scale numeric features, train and
+evaluate these models. For each model,
+show accuracy, precision, recall, F1.
+I use cross-validation, etc. Right?
+Obviously, we can change this pipeline
+as we particularly want. This is just
+for demo purpose. And then I ask which
+model performs best and why. So, we're
+going to jump into Claude Code. We're
+going to grab this prompt, send it over
+here, and see what happens.
+All right. And we have our results now.
+So, overall, we have 100% accuracy with
+logistic regression, 100% random forest,
+95 XGBoost, and yes, this data set was
+actually very simple to predict. So,
+that's obviously the case. I didn't use
+a real-world data set. I just asked an
+LM to build out a quick one for this
+particular video. Obviously, I could
+have made a better data set, but
+regardless, it says which model performs
+best obviously got both 100%. The data
+set only has 100 rows, very clean.
+And it talks about churn patterns that
+are simple. Top features driving churn
+is annual, strongest predictor followed
+by we have a few other ones. And then we
+have files created. So, for example, you
+want to see the ML pipeline,
+we can go over here. Complete ML
+pipeline for customer churn prediction.
+And look at all those imports. That's
+one of the things I always hated. It's
+just like importing everything. Um but,
+you can see all that is built over here,
+our pipeline across the board.
+And uh 200 lines of code, give or take.
+We also have a few other files as well.
+So, we have the model evaluation.
+Uh we also have over here feature
+importance across the board.
+And we have uh our churn model over
+here, which we could use. So,
+let's uh jump into another section,
+which we're going to be actually be
+taking a look at Streamlit, a tool that
+I like using quite a bit. All right. And
+uh now, let's jump into Streamlit. Okay,
+so we trained our model. That's cool and
+all, but like what utilization can we
+get out of that? Well, I just want to
+show you a quick demo of building out a
+Streamlit app from what we did in that
+previous section. I use Streamlit all
+the time for data tools. I find it
+particularly helpful. And uh Claude is
+really good at building these out fast.
+Okay, so here is our prompt. I have a
+trained customer churn model, which we
+just built out in that last side. It was
+trained on these features. Please build
+a Streamlit app called
+churn_predictor_app.py that has a clean
+title, description, and I just gave it
+like seven steps over here. Make it look
+professional and easy for non-technical
+stakeholder to use it. And what's really
+cool about Streamlit apps as well is you
+can deploy these in multiple different
+type of locations. If you want to be
+secure, you can deploy these with an
+AWS. If you don't care and you want this
+to be public, you can deploy it in
+Streamlit Cloud. So, we're going to take
+this prompt, we're going to run it. And
+also, Streamlit apps can run locally.
+So,
+we will send that actually to Claude.
+Which I almost didn't have that in
+Claude for a second. I just typing that
+prompt. And let's see when it's ready.
+Okay. So,
+I just want to walk you through a few
+things that happened as well. So,
+we have the app is ready. It created the
+Python file, which
+you know, Streamlit is a Python library,
+so we're going to have to set that up.
+And Streamlit apps you can build out
+relatively quick, but obviously,
+why type out this manually when you
+could just build out very fast? See,
+like 150 lines or so. It talks about
+what it is, title, description, input
+fields, etc. And they gave us even the
+code over here to run.
+So, when you build out a Streamlit app,
+you'll want to put in like Streamlit run
+and then the name of that particular
+file. I just asked it to run it because
+sometimes there could be some specific
+know if I had actually Streamlit
+installed on this computer or not. So,
+it noticed that there was an error. It
+downloaded Streamlit. And it mentioned
+that it's running on a local host 8501.
+Okay, so we got the local host 8501. And
+then you can see that we have this app
+called customer churn predictor. It says
+how to use this on the side, powered by
+a logistic regression. Now, I will
+mention I don't think this is going to
+be very accurate, to be honest with you.
+We trained on 100 samples. And the data
+set wasn't that particularly good. Uh
+but, you can see different features that
+teams might want to use like age, uh how
+long they've been around, what's their
+monthly spend, products, support
+tickets, and etc. So,
+we can flag them if they're high risk,
+if they're an annual customer, contract
+type, payment method, what region, and
+our group, everything that we built that
+specific model on. And obviously, this
+is local right now, but super easy to
+deploy this into Streamlit Cloud. Or if
+you want to deploy this with an AWS to
+be a lot more secure, or wherever else
+you want to.
+That is Streamlit. And that is a wrap.
+Those 10 basic use cases of Claude Code
+for data science. And honestly, there's
+dozens of others that we could have done
+in this video. So, if you want to see a
+part two, let us know down below. And
+also, feel free to share a use case that
+you've discovered, whether you're doing
+this for like side projects or your
+full-time job. If you're interested in
+watching other videos, we have tons on
+the channel about AI. We're uploading
+three times a week if not more, and I'll
+catch you guys in another video.
