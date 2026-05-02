@@ -1,6 +1,6 @@
 # Weaknesses of this playbook
 
-- 1. Using humans to fix AI writing makes it hard to grow fast.
+1. Using humans to fix AI writing makes it hard to grow fast.
 The plan illustrate humans must heavily edit everything to keep it high-quality. However, if humans have to rewrite every AI draft, you can’t produce a huge amount of content quickly without hiring a massive team.
 
 2. The plan assumes Google’s rules won’t change.
